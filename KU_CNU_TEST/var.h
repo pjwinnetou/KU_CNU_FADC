@@ -1,3 +1,6 @@
+#ifndef var_C
+#define var_C
+
 class data
 {
   public:
@@ -5,7 +8,7 @@ class data
   UChar_t fadc_tag[6];
   Float_t fadc_FADC[8192];
 
-  Int_t eventID, num_ArrayEvent_SM, num_ArrayEvent, num_Channel;
+  Int_t eventID, RL, num_ArrayEvent_SM, num_ArrayEvent, num_Channel;
 
   static const int MAXNUM=100000;
 
@@ -27,3 +30,8 @@ class data
   Float_t err_ch3[MAXNUM];
   Float_t err_ch4[MAXNUM];
 };
+
+TString inputfile = "Cs137_2310_214_1_32_ss.root";
+
+
+#endif

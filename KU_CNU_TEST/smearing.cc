@@ -101,6 +101,7 @@ int main(int argc, char* argv[])
   TTree *head = (TTree*) fp -> Get("head");
   tr -> SetBranchAddress("fadc", myData.fadc_trigger);
 
+  Int_t RL;
   head->GetEntry(0);
   Int_t rl = (Int_t )head -> GetLeaf("head1","rl") -> GetValue(); 
   cout << "rl : " << rl << endl;
@@ -109,6 +110,7 @@ int main(int argc, char* argv[])
   Int_t num_Channel; // number of channels used
   Int_t fillInt; 
   Int_t eventID=-1;
+  RL = rl;
 
   cout << "declear " << endl;
   num_ArrayCount = sizeof(myData.fadc_FADC)/sizeof(myData.fadc_FADC[0]);
@@ -148,6 +150,7 @@ int main(int argc, char* argv[])
   newtr -> Branch("num_ArrayCount",&num_ArrayCount,"num_ArrayCount/I");
   newtr -> Branch("num_ArrayEvent",&num_ArrayEvent,"num_ArrayEvent/I");
   newtr -> Branch("num_Channel",&num_Channel,"num_Channel/I");
+  newtr -> Branch("RL",&RL,"RL/I");
   newtr -> Branch("fADC_ch1",&fADC_ch1,"fADC_ch1[num_ArrayEvent]/F");
   newtr -> Branch("fADC_ch2",&fADC_ch2,"fADC_ch2[num_ArrayEvent]/F");
   newtr -> Branch("fADC_ch3",&fADC_ch3,"fADC_ch3[num_ArrayEvent]/F");
@@ -366,6 +369,7 @@ int main(int argc, char* argv[])
   finaltr -> Branch("eventID",&eventID,"eventID/I");
   finaltr -> Branch("num_ArrayEvent_SM",&num_ArrayEvent_SM,"num_ArrayEvent_SM/I");
   finaltr -> Branch("num_Channel",&num_Channel,"num_Channel/I");
+  finaltr -> Branch("RL",&RL,"RL/I");
   finaltr -> Branch("pedestal",&pedestal,"pedestal[4]/D");
   finaltr -> Branch("RMS",&RMS,"RMS[4]/D");
   finaltr -> Branch("SMfADC_ch1",&SMfADC_ch1,"SMfADC_ch1[num_ArrayEvent_SM]/F");
