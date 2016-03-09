@@ -31,7 +31,9 @@ class data
   Float_t err_ch4[MAXNUM];
 };
 
-TString inputfile = "Cs137_2310_214_1_32_ss.root";
+//TString inputfile = "Cs137_2310_214_1_32_ss.root";
+//TString inputfile = "Cs137_2310_214_2_32_ss.root";
+TString inputfile = "Cs137_2310_214_32_ss.root";
 
 
 #endif
